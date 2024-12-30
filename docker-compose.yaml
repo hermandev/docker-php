@@ -8,3 +8,16 @@ services:
       - "8081:80"
     volumes:
       - ./app:/var/www/html/
+
+  database:
+    image: mariadb:10.3
+    container_name: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: Supp0rt
+      MYSQL_USER: support
+      MYSQL_PASSWORD: Supp0rt
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db:/var/lib/mysql
